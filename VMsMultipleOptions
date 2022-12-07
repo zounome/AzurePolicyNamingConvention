@@ -1,0 +1,131 @@
+{
+  "properties": {
+    "displayName": "NamingConvention4",
+    "policyType": "Custom",
+    "mode": "All",
+    "metadata": {
+      "category": "NamingConvention",
+      "createdBy": "f248bc2d-0bc8-4b45-8e2d-120adb57a2a9",
+      "createdOn": "2022-12-07T16:18:56.5529962Z",
+      "updatedBy": "f248bc2d-0bc8-4b45-8e2d-120adb57a2a9",
+      "updatedOn": "2022-12-07T16:45:59.8438139Z"
+    },
+    "parameters": {
+      "Environment": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Environment Abbreviation",
+          "description": "Use 1 character for the environment abbreviation: 'd' = Dev, 'p' = Production, 's' = Stage, & 'q' = QA "
+        },
+        "allowedValues": [
+          "p",
+          "d",
+          "s",
+          "q"
+        ],
+        "defaultValue": "p"
+      },
+      "DataCenterCountry": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Data Center Country Abbreviation",
+          "description": "Use 2 characters to abbreviate the Azure country (e.g., 'us' for United States or 'ca' for Canada)."
+        },
+        "allowedValues": [
+          "ae",
+          "at",
+          "au",
+          "br",
+          "ca",
+          "ch",
+          "cl",
+          "cn",
+          "de",
+          "dk",
+          "es",
+          "fr",
+          "gb",
+          "gr",
+          "hk",
+          "ie",
+          "il",
+          "in",
+          "it",
+          "jp",
+          "kr",
+          "mx",
+          "nl",
+          "no",
+          "nz",
+          "pl",
+          "qa",
+          "se",
+          "sg",
+          "tw",
+          "us",
+          "za"
+        ],
+        "defaultValue": "us"
+      },
+      "DataCenterLocation": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Data Center Location Abbreviation",
+          "description": "Use 1 - 2 characters to abbreviate the Azure location (e.g., 'e' for East US or 'e2' for East US 2)."
+        },
+        "allowedValues": [
+          "est1",
+          "est2",
+          "e3",
+          "c",
+          "c2",
+          "dc",
+          "de",
+          "ga",
+          "gt",
+          "gv",
+          "n",
+          "n2",
+          "nc",
+          "ne",
+          "s",
+          "sc",
+          "se",
+          "wst1",
+          "wst2",
+          "w3",
+          "wc"
+        ],
+        "defaultValue": "est1"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "name",
+            "notMatch": "[concat(parameters('DataCenterCountry'), 'az', parameters('DataCenterLocation'), parameters('Environment'), '????', '##')]"
+          },
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/virtualMachines"
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "id": "/subscriptions/b6e137a1-d8ca-4a35-8ee1-1a360dc69905/providers/Microsoft.Authorization/policyDefinitions/980070d5-4af3-4c8d-9d67-33c68a1fcc0d",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "980070d5-4af3-4c8d-9d67-33c68a1fcc0d",
+  "systemData": {
+    "createdBy": "nnzegwu@hotmail.com",
+    "createdByType": "User",
+    "createdAt": "2022-12-07T16:18:56.5145914Z",
+    "lastModifiedBy": "nnzegwu@hotmail.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2022-12-07T16:45:59.8003456Z"
+  }
+}
