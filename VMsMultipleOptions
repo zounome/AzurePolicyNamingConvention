@@ -3,13 +3,6 @@
     "displayName": "NamingConvention4",
     "policyType": "Custom",
     "mode": "All",
-    "metadata": {
-      "category": "NamingConvention",
-      "createdBy": "f248bc2d-0bc8-4b45-8e2d-120adb57a2a9",
-      "createdOn": "2022-12-07T16:18:56.5529962Z",
-      "updatedBy": "f248bc2d-0bc8-4b45-8e2d-120adb57a2a9",
-      "updatedOn": "2022-12-07T16:45:59.8438139Z"
-    },
     "parameters": {
       "Environment": {
         "type": "String",
